@@ -42,23 +42,23 @@ const Item = styled.li`
 `
 
 const InputCheck = styled.input`
-  text-align: center;
-  width: 40px;
+  appearance: none;
+  border: none; /* Mobile Safari */
+  bottom: 0;
   /* auto, since non-WebKit browsers doesn't support input styling */
   height: 40px;
+  margin: auto 0;
+  opacity: 0;
   position: absolute;
   top: 0;
-  bottom: 0;
-  margin: auto 0;
-  border: none; /* Mobile Safari */
+  text-align: center;
+  width: 40px;
   -webkit-appearance: none;
-  appearance: none;
-  opacity: 0;
 
   & + label {
     background-image: url('data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20width%3D%2240%22%20height%3D%2240%22%20viewBox%3D%22-10%20-18%20100%20135%22%3E%3Ccircle%20cx%3D%2250%22%20cy%3D%2250%22%20r%3D%2250%22%20fill%3D%22none%22%20stroke%3D%22%23ededed%22%20stroke-width%3D%223%22/%3E%3C/svg%3E');
-    background-repeat: no-repeat;
     background-position: center left;
+    background-repeat: no-repeat;
   }
 
   &:checked + label {
@@ -76,8 +76,11 @@ const DeleteButton = styled.button`
   background: none;
   border: none;
   color: red;
+  cursor: pointer;
   display: none;
   font-size: 1.4rem;
+  position: absolute;
+  right: 20px;
 `
 
 export default TaskItem
