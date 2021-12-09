@@ -1,0 +1,14 @@
+{
+  "tasks": [
+    {
+      "id": "e0bd4821-96da-4ae4-b795-1298d7c80831",
+      "description": "Just an example task",
+      "completed": false
+    },
+    {
+      "id": "abdfdc47-e14c-4331-a96e-d5ec36534f97",
+      "description": "Another an example task",
+      "completed": false
+    }
+  ]
+}
