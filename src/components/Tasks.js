@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import styled from 'styled-components'
 import { v4 as uuid } from 'uuid'
+import { selectFilter } from '../reducers/filters'
 import {
   createTaskRequest,
   deleteTaskRequest,
@@ -13,6 +14,7 @@ import TaskItem from './TaskItem'
 
 const Tasks = () => {
   const tasks = useSelector(selectTasks)
+  const filter = useSelector(selectFilter)
   const dispatch = useDispatch()
   const [newTaskDescription, setNewTaskDescription] = useState('')
 
@@ -53,6 +55,16 @@ const Tasks = () => {
     dispatch(deleteTaskRequest(id))
   }
 
+  const filteredTasks = tasks.filter(task => {
+    if (filter === 'all') {
+      return true
+    }
+    if (filter === 'active' && !task.completed) {
+      return true
+    }
+    return filter === 'completed' && task.completed
+  })
+
   return (
     <Container>
       <Input
@@ -63,7 +75,7 @@ const Tasks = () => {
         onKeyDown={handleKeyPress}
       />
       <List>
-        {tasks.map(({ id, description, completed }) => (
+        {filteredTasks.map(({ id, description, completed }) => (
           <TaskItem
             key={id}
             id={id}
