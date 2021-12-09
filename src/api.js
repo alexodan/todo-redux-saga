@@ -15,3 +15,13 @@ export const getTasks = () => requestApi(`${apiUrl}/tasks`)
 export const postTask = task => {
   requestApi(`${apiUrl}/tasks`, 'POST', { body: JSON.stringify(task) })
 }
+
+export const toggleTask = task => {
+  requestApi(`${apiUrl}/tasks/${task.id}`, 'PUT', {
+    body: JSON.stringify(task),
+  })
+}
+
+export const deleteTask = id => {
+  requestApi(`${apiUrl}/tasks/${id}`, 'DELETE')
+}
