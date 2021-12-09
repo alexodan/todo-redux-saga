@@ -2,7 +2,12 @@ import { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import styled from 'styled-components'
 import { v4 as uuid } from 'uuid'
-import { createTaskRequest, requestTasks } from '../reducers/tasks'
+import {
+  createTaskRequest,
+  deleteTaskRequest,
+  requestTasks,
+  toggleTaskRequest,
+} from '../reducers/tasks'
 import { selectTasks } from '../reducers/tasks'
 import TaskItem from './TaskItem'
 
@@ -35,10 +40,18 @@ const Tasks = () => {
   }
 
   const toggleCompleted = id => {
-    // dispatch toggleTask
+    const taskToUpdate = tasks.find(t => t.id === id)
+    dispatch(
+      toggleTaskRequest({
+        ...taskToUpdate,
+        completed: !taskToUpdate.completed,
+      })
+    )
   }
 
-  const deleteTask = id => {}
+  const deleteTask = id => {
+    dispatch(deleteTaskRequest(id))
+  }
 
   return (
     <Container>
@@ -53,6 +66,7 @@ const Tasks = () => {
         {tasks.map(({ id, description, completed }) => (
           <TaskItem
             key={id}
+            id={id}
             description={description}
             completed={completed}
             onToggleCompleted={toggleCompleted}

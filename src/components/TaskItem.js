@@ -10,8 +10,7 @@ const TaskItem = ({
 }) => {
   const deleteTask = () => onDelete(id)
 
-  const toggleCompleted = e => {
-    console.log(e)
+  const toggleCompleted = () => {
     onToggleCompleted(id)
   }
 
