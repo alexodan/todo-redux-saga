@@ -1,25 +1,12 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
-import createSagaMiddleware from 'redux-saga'
-import { Provider } from 'react-redux'
-import { createStore, applyMiddleware } from 'redux'
-import { composeWithDevTools } from 'redux-devtools-extension'
-import App from './App'
 import reportWebVitals from './reportWebVitals'
-import reducer from './reducers'
-import rootSaga from './sagas'
 import './index.css'
-
-const sagaMiddleware = createSagaMiddleware()
-const composedEnhancers = composeWithDevTools(applyMiddleware(sagaMiddleware))
-export const store = createStore(reducer, composedEnhancers)
-sagaMiddleware.run(rootSaga)
+import App from './App'
 
 ReactDOM.render(
   <React.StrictMode>
-    <Provider store={store}>
-      <App />
-    </Provider>
+    <App />
   </React.StrictMode>,
   document.getElementById('root')
 )
