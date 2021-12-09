@@ -1,25 +1,43 @@
-import logo from './logo.svg';
-import './App.css';
+import { Provider } from 'react-redux'
+import { createStore, applyMiddleware } from 'redux'
+import reducer from './reducers'
+import createSagaMiddleware from 'redux-saga'
+import rootSaga from './sagas'
+import Tasks from './components/Tasks'
+import styled from 'styled-components'
+
+const sagaMiddleware = createSagaMiddleware()
+export const store = createStore(reducer, applyMiddleware(sagaMiddleware))
+sagaMiddleware.run(rootSaga)
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    <Provider store={store}>
+      <Container>
+        <h1>todos</h1>
+        <Tasks />
+      </Container>
+    </Provider>
+  )
 }
 
-export default App;
+const Container = styled.div`
+  align-items: center;
+  color: #4d4d4d;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  justify-content: center;
+  margin: 0 auto;
+  max-width: 550px;
+  min-width: 230px;
+
+  h1 {
+    color: rgba(175, 47, 47, 0.15);
+    font-size: 5rem;
+    font-weight: 300;
+    margin-bottom: 30px;
+  }
+`
+
+export default App
