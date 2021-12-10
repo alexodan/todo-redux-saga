@@ -1,14 +1,19 @@
 {
   "tasks": [
     {
-      "id": "e0bd4821-96da-4ae4-b795-1298d7c80831",
-      "description": "Just an example task",
+      "id": "bb732b9e-733a-4d93-8790-aba889b15e85",
+      "description": "an example task",
       "completed": false
     },
     {
-      "id": "abdfdc47-e14c-4331-a96e-d5ec36534f97",
-      "description": "Another an example task",
-      "completed": false
+      "id": "a627cedc-f371-4a85-8320-fb07a1ba3a91",
+      "description": "another example task",
+      "completed": true
+    },
+    {
+      "id": "10948009-0af9-4849-9fa9-fd8af56025a9",
+      "description": "something else",
+      "completed": true
     }
   ]
 }
