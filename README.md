@@ -16,4 +16,4 @@ Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 - [Redux](https://redux.js.org/api/api-reference)
 - [Redux Saga](https://redux-saga.js.org/docs/)
 
-https://user-images.githubusercontent.com/35075089/145494791-b548e8ea-51ab-4f7f-bed1-30fc22e257b1.mov
+![demo](https://user-images.githubusercontent.com/35075089/145495151-c748dc47-87fe-4666-bf3e-bc88ff55d177.gif)
