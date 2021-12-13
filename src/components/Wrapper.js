@@ -1,9 +1,9 @@
 import React from 'react'
 import styled from 'styled-components'
 import { useSelector } from 'react-redux'
-import { selectTasks } from './reducers/tasks'
-import Tasks from './components/Tasks'
-import Filters from './components/Filters'
+import { selectTasks } from '../reducers/tasks'
+import Tasks from './Tasks'
+import Filters from './Filters'
 
 const Wrapper = () => {
   const tasks = useSelector(selectTasks)
