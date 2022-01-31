@@ -1,8 +1,15 @@
-export const GET_FILTER = 'SELECT_FILTER'
+import { GET_FILTER } from './filters'
 
-export const initialState = {
+const initialState = {
   filter: 'all',
 }
+
+describe('filters reducer', () => {
+    // beforeEach()
+    it('should selects all filter', () => {
+        
+    })
+});
 
 export const selectFilter = state => state.filters.filter
 
